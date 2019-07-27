@@ -61,7 +61,7 @@ class DemandDetail(generics.RetrieveUpdateDestroyAPIView):
         if query_all or serializer.data['user'] == request.user.id:
             return self.partial_update(request, *args, **kwargs)
         else:
-            content = {'erro': 'You do not have permission to update this content.'}
+            content = {'erro': 'You do not have permission to update this demand.'}
             return Response(content, status=status.HTTP_403_FORBIDDEN)
         
     def delete(self, request, *args, **kwargs):
@@ -72,7 +72,25 @@ class DemandDetail(generics.RetrieveUpdateDestroyAPIView):
         if query_all or serializer.data['user'] == request.user.id:
             return self.destroy(request, *args, **kwargs)
         else:
-            content = {'erro': 'You do not have permission to delete this content.'}
+            content = {'erro': 'You do not have permission to delete this demand.'}
             return Response(content, status=status.HTTP_403_FORBIDDEN)
 
+        
+class DemandDetailFinish(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Demand.objects.all()
+    serializer_class = DemandSerializer
+
+    def patch(self, request, *args, **kwargs):
+        query_all = user_show(request)
+        instance = self.get_object()
+        serializer = self.get_serializer(instance)
+
+        if query_all or serializer.data['user'] == request.user.id:
+            request.data.update({
+                'status': False
+            })
+            return self.partial_update(request, *args, **kwargs)
+        else:
+            content = {'erro': 'You do not have permission to finish this demand.'}
+            return Response(content, status=status.HTTP_403_FORBIDDEN)
         

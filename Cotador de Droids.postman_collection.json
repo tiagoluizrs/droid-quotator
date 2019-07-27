@@ -1,0 +1,263 @@
+{
+	"info": {
+		"_postman_id": "187a1cf6-91a2-49b9-b403-cf9c26eb08b4",
+		"name": "Cotador de Droids",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login para solicitação de Token de acesso à API",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "senha123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/login/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"login",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criação de uma demanda",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6ImFkbWluIiwiZXhwIjoxNTY0MjQ3OTU4LCJlbWFpbCI6InRpYWdvbHVpenJpYmVpcm9kYXNpbHZhQGdtYWlsLmNvbSJ9.SQmiN2vlKJojPT84ZI0mw0Ch7zB4FNM8z4OyytOi6r8",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Teste de api 2\",\n    \"description\": \"Descrição\",\n    \"delivery_address\": \"Est. Mendanha\",\n    \"number\": \"3600\",\n    \"cep\": \"23.092-002\",\n    \"state\": \"Rio de Janeiro.\",\n    \"city\": \"Rio de Janeiro\",\n    \"contact_tel\": \"+55 21 9 89889438\",\n    \"contact_email\": \"tiago@gmail.com\",\n    \"comp\": \"333\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8000/demands/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"demands",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listagem de demandas do usuário",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6InVzdWFyaW8iLCJleHAiOjE1NjQyNDgyNTEsImVtYWlsIjoiIn0.ZZW_SwWHNpbNJFxePM3hWs1MGZSEUV4TCkXevbntnH0",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8000/demands",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"demands"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edição de uma demanda",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6ImFkbWluIiwiZXhwIjoxNTY0MjQ2MTY3LCJlbWFpbCI6InRpYWdvbHVpenJpYmVpcm9kYXNpbHZhQGdtYWlsLmNvbSJ9.6R_uJ-d1Hd6GxQwADH1sMTBVWPQrpB9iP4WtJLRGY10"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Teste de api 3\",\n    \"description\": \"Descrição 3 3\",\n    \"delivery_address\": \"Est. Mendanha 3\",\n    \"number\": 36003,\n    \"comp\": \"teste\",\n    \"cep\": \"23.092-0023\",\n    \"state\": \"Rio de Janeiro.\",\n    \"city\": \"Rio de Janeiro3\",\n    \"contact_tel\": \"+55 21 9 89889438\",\n    \"contact_email\": \"tiago@gmail.com\",\n    \"created_at\": \"2019-07-27T16:13:38.318218Z\",\n    \"updated_at\": \"2019-07-27T16:13:38.318255Z\",\n    \"status\": true,\n    \"user\": 1\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8000/demand/7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"demand",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Exclusão de uma demanda",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6ImFkbWluIiwiZXhwIjoxNTY0MjQ5MjU1LCJlbWFpbCI6InRpYWdvbHVpenJpYmVpcm9kYXNpbHZhQGdtYWlsLmNvbSJ9.y59DcuMdA0qqesv6IAZTzQ__qR1fEstCYDAIDfNc9BI"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8000/demand/6/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"demand",
+						"6",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Finalização de Demanda",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6ImFkbWluIiwiZXhwIjoxNTY0MjQ5MjU1LCJlbWFpbCI6InRpYWdvbHVpenJpYmVpcm9kYXNpbHZhQGdtYWlsLmNvbSJ9.y59DcuMdA0qqesv6IAZTzQ__qR1fEstCYDAIDfNc9BI"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8000/demand/finish/8/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"demand",
+						"finish",
+						"8",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LIstagem de item por ID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6InVzdWFyaW8iLCJleHAiOjE1NjQyNDgyNTEsImVtYWlsIjoiIn0.ZZW_SwWHNpbNJFxePM3hWs1MGZSEUV4TCkXevbntnH0",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8000/demand/8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"demand",
+						"8"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
