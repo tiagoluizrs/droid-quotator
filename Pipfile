@@ -11,6 +11,7 @@ django-jet = "*"
 feedparser = "*"
 djangorestframework = "*"
 django-model-utils = "*"
+djangorestframework-jwt = "*"
 
 [dev-packages]
 django-extensions = "*"

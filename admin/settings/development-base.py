@@ -19,3 +19,11 @@ DATABASES = {
         'PORT': '3306'
     }
 }
+
+# JWT Custom configuration
+WT_AUTH = {
+    'JWT_SECRET_KEY': SECRET_KEY,
+    'JWT_ALGORITHM': 'HS256',
+    'JWT_VERIFY_EXPIRATION': False,
+    'JWT_EXPIRATION_DELTA': None,
+}
