@@ -4,7 +4,7 @@ from django import forms
 
 class DemandAdmin(admin.ModelAdmin):
     list_display = [
-        'id', 'name', 
+        'name', 
         'user', 'created_at', 
         'updated_at', 'status'
     ]

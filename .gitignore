@@ -1,2 +1,8 @@
 admin/settings/development.py
 admin/settings/production.py
+
+venv
+
+*.pyc
+*/*.pyc
+*/*/*.pyc

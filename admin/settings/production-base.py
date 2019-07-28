@@ -11,12 +11,12 @@ SECRET_KEY = ''
 # Crie um usuário e senha para adicionar ao banco de dados de produção
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': os.getenv('DB_NAME', 'droid_quotator'),
         'USER': os.getenv('DB_USER', ''),
         'PASSWORD': os.getenv('DB_PASSWORD', ''),
-        'HOST': os.getenv('DB_HOST', 'localhost'),
-        'PORT': '3306'
+        'HOST': os.getenv('DB_HOST', 'db'),
+        'PORT': 5432
     }
 }
 

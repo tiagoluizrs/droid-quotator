@@ -7,6 +7,6 @@ img[src$="admin/img/icon-unknown.svg"]{
     display: initial;
 }
 
-img[src$="admin/img/icon-yes.gif"]+span, img[src$="admin/img/icon-yes.svg"]+span {
+img[src$="admin/img/icon-no.gif"]+span, img[src$="admin/img/icon-no.svg"]+span, img[src$="admin/img/icon-yes.gif"]+span, img[src$="admin/img/icon-yes.svg"]+span {
     display: none;
 }
