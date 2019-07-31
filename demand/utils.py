@@ -1,8 +1,7 @@
 def user_show(request):
-    query_all = False
+	query_all = False
     
-    for group in request.user.groups.all():
-        if group.id == 1:
-            query_all = True
+	if request.user.role == 1:
+		query_all = True
 
-    return query_all
+	return query_all

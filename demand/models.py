@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, AbstractUser
+from django.conf import settings
+from account.models import User
 
 class Demand(models.Model):
     name = models.CharField(max_length=100, verbose_name='Nome')

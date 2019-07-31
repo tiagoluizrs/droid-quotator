@@ -7,4 +7,3 @@ django-model-utils
 djangorestframework-jwt
 docker-compose
 django-extensions
-psycopg2
