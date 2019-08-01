@@ -36,6 +36,8 @@ class LoginTestCase(TestCase):
         self.user = User.objects.create_user(
             email=self.email, password=self.password
         )
+        self.user.admin = False
+        self.user.save()
 
     def test_login(self):
         client = APIClient(enforce_csrf_checks=True)
@@ -43,5 +45,5 @@ class LoginTestCase(TestCase):
         decoded_payload = utils.jwt_decode_handler(response.data['token'])
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(decoded_payload['email'], self.username)
+        self.assertEqual(decoded_payload['email'], self.email)
 
