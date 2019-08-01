@@ -1,8 +1,15 @@
 admin/settings/development.py
 admin/settings/production.py
+admin/settings/testing.py
 
+htmlcov
 venv
+.pytest_cache
+.vscode
 
+.coverage
 *.pyc
 */*.pyc
 */*/*.pyc
+*/migrations/__pycache__
+*/migrations/*.py

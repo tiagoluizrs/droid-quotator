@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "187a1cf6-91a2-49b9-b403-cf9c26eb08b4",
+		"_postman_id": "c9faf425-a8c4-4209-86fb-3f56cc58fd04",
 		"name": "Cotador de Droids",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -14,13 +14,13 @@
 					"mode": "urlencoded",
 					"urlencoded": [
 						{
-							"key": "username",
-							"value": "admin",
+							"key": "email",
+							"value": "tiagosevencg@gmail.com",
 							"type": "text"
 						},
 						{
 							"key": "password",
-							"value": "senha123",
+							"value": "#Tiagos3v3n",
 							"type": "text"
 						}
 					]
@@ -86,7 +86,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6InVzdWFyaW8iLCJleHAiOjE1NjQyNDgyNTEsImVtYWlsIjoiIn0.ZZW_SwWHNpbNJFxePM3hWs1MGZSEUV4TCkXevbntnH0",
+						"value": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6InRpYWdvc2V2ZW5jZ0BnbWFpbC5jb20iLCJleHAiOjE1NjQ1MTkyMjEsImVtYWlsIjoidGlhZ29zZXZlbmNnQGdtYWlsLmNvbSJ9.uz-j5QPc7Tjc3cx9nH5VoSwC2Ag-kCZF5oNEzupl4oc",
 						"type": "text"
 					},
 					{
@@ -100,10 +100,13 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:8000/demands",
+					"raw": "http://0.0.0.0:8000/demands",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"0",
+						"0",
+						"0",
+						"0"
 					],
 					"port": "8000",
 					"path": [
