@@ -1,5 +1,30 @@
 # Cotador de Droids
 
+## Arquivos de configuração
+    
+
+Forma criados três arquivos de configuração para esse projeto e mais um arquivo base. Isso foi feito para que possamos ter configurações específicas para cada ambiente. Veja abaixo:
+
+
+```
+droid_quotator
+│   README.md
+admin
+│   │
+│   └───settings
+│       │   base.py
+│       │   development-base.py
+│       │   production-base.py
+│       │   testing-base.py
+│       │   ...
+```
+
+
+Em produção e dev por exemplo temos o banco `postgres`, enquanto no testing, temos o `sqlite3`. Os nomes dos arquivos estão com o sufixo `-base`, pois esses são os arquivos que vão para o repositório. Por motivos de segurança esses arquivos não tem as credenciais de senhas, acessos etc preenchidas, pegue cada arquivo desse crie uma duplicata e retire o nome -base, ficando apenas, development.py, production.py, testing.py e base.py. Deixe os arquivos `-base` da forma que estavam, eles serão base para outros usuários. Agora você tem arquivos de configuração para você usar e ao fazer um commit e push para o repositório os seus arquivos não irão e assim não levarão suas credenciais.
+
+
+> Não esqueça de preencher campos como `SECRET` e as credenciais do banco de dados que você irá configurar. Ao rodar o projeto com o docker-compose as credenciais que deixei foram usuario='postgres', senha='postgres' e password='postgres'. Não deixe essas credenciais para uso em produção.
+
 
 ## Iniciando a aplicação no Docker
 
@@ -62,3 +87,25 @@ Exemplo: **JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI...**
 
 
 ## Testes unitários
+
+
+Para rodar os testes unitários execute o seguinte comando:
+```console
+python manage.py test
+``` 
+
+Caso deseje modificar algum teste, cada app do projeto possui um arquivo chamado tests.py é só abrir e editar:
+
+```
+droid_quotator
+│   README.md
+account
+│   │   tests.py
+admin
+│   │   tests.py
+demand
+│   │   tests.py
+pytest.ini
+```
+
+O arquivo `pytest.ini` é onde setamos o arquivo de configuração que construirá o banco de dados no sqlite3 para realizarmos os testes.
